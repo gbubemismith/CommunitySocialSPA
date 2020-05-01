@@ -1,0 +1,23 @@
+<section  style="background:transparent !important" class="jumbotron text-center">
+    <div *ngIf="!registerMode; else register" class="container">
+      <h1>The best way to reach out to your community</h1>
+      <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+      <p>
+        <a href="#" class="btn btn-primary mr-2" (click)="registerToggle()">Register</a>
+        <a href="#" class="btn btn-secondary">Learn More</a>
+      </p>
+    </div>
+
+    <ng-template #register>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</section>
+
+
+
