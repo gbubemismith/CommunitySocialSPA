@@ -10,7 +10,8 @@ import { NavComponent } from './nav/nav.component';
 import { AuthService } from './services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { MemberListComponent } from './member-list/member-list.component';
+import { MemberListComponent } from './members/member-list/member-list.component';
+import { MemberCardComponent } from './members/member-card/member-card.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { RouterModule } from '@angular/router';
@@ -23,6 +24,7 @@ import { appRoutes } from './routes';
     HomeComponent,
     RegisterComponent,
     MemberListComponent,
+    MemberCardComponent,
     ListsComponent,
     MessagesComponent 
   ],
