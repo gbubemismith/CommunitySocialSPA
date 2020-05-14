@@ -13,7 +13,7 @@ export class NavComponent implements OnInit {
   model: any = {};
 
   constructor(
-    private auth: AuthService, 
+    public auth: AuthService, 
     private alertifyService: AlertifyService, 
     private router: Router
     ) { }
