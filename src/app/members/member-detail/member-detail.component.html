@@ -6,19 +6,19 @@
                 <div class="card-body">
                     <div>
                         <strong>Location:</strong>
-                        <p>{{ user?.city }}, {{ user?.country }}</p>
+                        <p>{{ user.city }}, {{ user.country }}</p>
                     </div>
                     <div>
                         <strong>Age:</strong>
-                        <p>{{ user?.age }}</p>
+                        <p>{{ user.age }}</p>
                     </div>
                     <div>
                         <strong>Last Active:</strong>
-                        <p>{{ user?.lastActive }}</p>
+                        <p>{{ user.lastActive }}</p>
                     </div>
                     <div>
                         <strong>Member Since:</strong>
-                        <p>{{ user?.created }}</p>
+                        <p>{{ user.created }}</p>
                     </div>
                 </div>
                 <div class="card-footer">
@@ -30,7 +30,40 @@
             </div>
         </div>
         <div class="col-sm-8">
-
+            <div class="tab-panel">
+                <ngb-tabset [destroyOnHide]="false" class="member-tabset">
+                    <ngb-tab >
+                    <ng-template ngbTabTitle><b>About</b> {{ user.knownAs }}</ng-template>
+                      <ng-template ngbTabContent>
+                        <h4>Description</h4>
+                        <p>{{ user.introduction }}</p>
+                        <h4>Looking For</h4>
+                        <p>{{ user.lookingFor }}</p>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle><b>Interests</b></ng-template>
+                      <ng-template ngbTabContent>
+                          <h4>Interests</h4>
+                          <p>{{ user.interests }}</p>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                        <ng-template ngbTabTitle><b>Photos</b></ng-template>
+                        <ng-template ngbTabContent>
+                            <ngx-gallery [options]="galleryOptions" [images]="galleryImages">
+                        </ngx-gallery>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                        <ng-template ngbTabTitle><b>Messages</b></ng-template>
+                        <ng-template ngbTabContent>
+                            <p>Messages here</p>
+                        </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+            </div>
+            
         </div>
     </div>
 </div>
