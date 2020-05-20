@@ -22,7 +22,7 @@
             </a>
             
             <div ngbDropdownMenu class=" mt-3" >
-                <a ngbDropdownItem class="dropdown-item" ><i class="fa fa-user"></i> Edit Profile</a>
+                <a ngbDropdownItem class="dropdown-item" [routerLink]="['/member/edit']"><i class="fa fa-user"></i> Edit Profile</a>
                 <div class="dropdown-divider"></div>
                 <a ngbDropdownItem class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</a>
             </div>
