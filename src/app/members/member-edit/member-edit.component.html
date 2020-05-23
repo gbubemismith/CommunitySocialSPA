@@ -45,7 +45,7 @@
                     <ng-template ngbTabTitle><b>Edit Profile</b></ng-template>
                       <ng-template ngbTabContent>
                             <form [formGroup]="editForm" id="editForm" (ngSubmit)="updateUser()">
-                                <h4>Description</h4>
+                                <h4>Introduction</h4>
                                 <textarea name="introduction" rows="6" cols="" class="form-control" [(ngModel)]="user.introduction" formControlName="introduction">
                                 </textarea>
                                 <h4>Looking For</h4>

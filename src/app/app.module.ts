@@ -1,3 +1,6 @@
+import { UserService } from './services/user.service';
+import { User } from './models/user';
+import { AlertifyService } from './services/alertify.service';
 import { MemberEditResolver } from './resolvers/member-edit.resolver';
 import { MemberListResolver } from './resolvers/member-list.resolver';
 import { ErrorInterceptorProvider } from './services/error.interceptor';
@@ -23,6 +26,8 @@ import { appRoutes } from './routes';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { MemberDetailResolver } from './resolvers/member-detail.resolver';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { AuthGuard } from './guards/auth.guard';
+import { PreventUnsavedChanges } from './guards/prevent-unsaved-changes.guard';
 
 
 export function tokenGetter() {
@@ -68,6 +73,10 @@ export class CustomHammerConfig extends HammerGestureConfig  {
   providers: [
     ErrorInterceptorProvider,
     AuthService,
+    AuthGuard,
+    AlertifyService,
+    UserService,
+    PreventUnsavedChanges,
     MemberDetailResolver,
     MemberListResolver,
     MemberEditResolver,
