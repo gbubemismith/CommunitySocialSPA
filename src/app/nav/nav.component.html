@@ -18,7 +18,7 @@
 
         <div ngbDropdown class="dropdown" *ngIf="loggedIn(); else loggedInForm" >
             <span class="mr-2">
-                <img [src]="photoUrl" alt="">
+                <img [src]="photoUrl || '../../assets/user.png'" alt="">
             </span>
             <a ngbDropdownToggle class="dropdown-toggle text-light" >
                 Welcome {{ auth.decodedToken?.unique_name | titlecase }}
