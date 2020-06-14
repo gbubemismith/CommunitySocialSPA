@@ -1,10 +1,11 @@
+import { PaginatedResult } from './../models/pagination';
 import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
-import { PaginatedResult } from '../models/pagination';
+
 
 
 @Injectable({
@@ -48,8 +49,8 @@ export class UserService {
         if (response.headers.get('Pagination') != null) {
           paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'))
         }
-        return paginatedResult;
-      })
+          return paginatedResult;
+        })
       );
   }
 
@@ -71,6 +72,10 @@ export class UserService {
 
   sendLike(id: number, recipientId: number) {
     return this.http.post(this.baseUrl + 'users/' + id + '/like/' + recipientId, {});
+  }
+
+  getMessages(id: number, page? , itemsPerPage?, messageContainer?) {
+    
   }
 
 
