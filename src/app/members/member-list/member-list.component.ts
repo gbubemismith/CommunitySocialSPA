@@ -38,6 +38,7 @@ export class MemberListComponent implements OnInit {
   }
 
   pageChanged(event: any) {
+
     this.pagination.currentPage = event;
     this.loadUsers();
   }
@@ -51,7 +52,6 @@ export class MemberListComponent implements OnInit {
   }
  
   loadUsers() {
-    
     this.userService.getUsers(this.pagination.currentPage, this.pagination.itemsPerPage, this.userParams)
     .subscribe((res: PaginatedResult<User[]>) => {
       this.users = res.result;

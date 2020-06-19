@@ -81,6 +81,8 @@ export class UserService {
 
     let params = new HttpParams();
 
+    console.log('messageContainer:', messageContainer);
+
     params = params.append('MessageContainer', messageContainer);
 
     if (page != null && itemsPerPage != null) {

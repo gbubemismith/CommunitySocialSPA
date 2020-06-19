@@ -18,7 +18,7 @@ import { Pagination, PaginatedResult } from '../models/pagination';
 export class MessagesComponent implements OnInit {
   messages: Message[];
   pagination: Pagination;
-  messageContainer: 'Unread';
+  messageContainer =  'Unread';
 
 
   constructor(private userService: UserService,
@@ -27,16 +27,23 @@ export class MessagesComponent implements OnInit {
           private aleritfy: AlertifyService) { }
 
   ngOnInit() {
+
     this.route.data.subscribe(data => {
       this.messages = data['messages'].result;
       this.pagination = data['messages'].pagination;
     });
+
+    
   }
   
   
   loadMessages() {
-    this.userService.getMessages(this.auth.decodedToken.userid, this.pagination.currentPage, this.pagination.itemsPerPage, this.messageContainer).subscribe((res: PaginatedResult<Message[]>) => {
 
+    console.log(this.messageContainer);
+
+    this.userService.getMessages(this.auth.decodedToken.nameid, this.pagination.currentPage, this.pagination.itemsPerPage, this.messageContainer).subscribe((res: PaginatedResult<Message[]>) => {
+      this.messages = res.result;
+      this.pagination = res.pagination;
     }, error => {
       this.aleritfy.error(error);
     });
