@@ -24,15 +24,15 @@
                 <div class="card-footer">
                     <div class="btn-group d-flex">
                         <button class="btn btn-primary w-100">Like</button>
-                        <button class="btn btn-success w-100">Message</button>
+                        <button class="btn btn-success w-100" (click)="t.select('messages-tab')">Message</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-sm-8">
             <div class="tab-panel">
-                <ngb-tabset [destroyOnHide]="false" class="member-tabset">
-                    <ngb-tab >
+                <ngb-tabset #t="ngbTabset" [destroyOnHide]="false" class="member-tabset">
+                    <ngb-tab id="about-tab">
                     <ng-template ngbTabTitle><b>About</b> {{ user.knownAs }}</ng-template>
                       <ng-template ngbTabContent>
                         <h4>Description</h4>
@@ -41,24 +41,24 @@
                         <p>{{ user.lookingFor }}</p>
                       </ng-template>
                     </ngb-tab>
-                    <ngb-tab>
+                    <ngb-tab id="interest-tab">
                       <ng-template ngbTabTitle><b>Interests</b></ng-template>
                       <ng-template ngbTabContent>
                           <h4>Interests</h4>
                           <p>{{ user.interests }}</p>
                       </ng-template>
                     </ngb-tab>
-                    <ngb-tab>
+                    <ngb-tab id="photos-tab">
                         <ng-template ngbTabTitle><b>Photos</b></ng-template>
                         <ng-template ngbTabContent>
                             <ngx-gallery [options]="galleryOptions" [images]="galleryImages">
                         </ngx-gallery>
                         </ng-template>
                     </ngb-tab>
-                    <ngb-tab>
+                    <ngb-tab id="messages-tab">
                         <ng-template ngbTabTitle><b>Messages</b></ng-template>
                         <ng-template ngbTabContent>
-                            <p>Messages here</p>
+                            <app-member-messages [recipientId]="user.id"></app-member-messages>
                         </ng-template>
                     </ngb-tab>
                   </ngb-tabset>

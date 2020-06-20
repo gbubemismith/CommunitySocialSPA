@@ -1,11 +1,10 @@
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { AlertifyService } from './../services/alertify.service';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from './../services/auth.service';
 import { UserService } from './../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Pagination, PaginatedResult } from '../models/pagination';
-
+import { Message } from '../models/message';
 
 
 

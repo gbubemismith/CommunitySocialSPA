@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { Message } from '../models/message';
 
 
 
@@ -105,6 +105,12 @@ export class UserService {
 
   }
 
+  getMessageThread(id: number, recipientId: number) {
+    return this.http.get<Message[]>(this.baseUrl + 'users/' + id + '/messages/thread/' + recipientId);
+  }
 
+  sendMessage(id: number, message: Message) {
+    return this.http.post(this.baseUrl + 'users/' + id + '/messages', message); 
+  }
   
 } 
